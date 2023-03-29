@@ -1,7 +1,14 @@
 $content-width: 1120px;
 
-$color-white: #fff;
-$color-blue: #1eb7ee;
-$color-dark-grey: #595959;
+$color-white: rgba(255, 255, 255, 1);
+$color-blue: rgba(30, 183, 238, 1);
+$color-dark-grey: rgba(89, 89, 89, 1);
 
-$color-text-grey: #b8b9b9;
+$color-text-grey: rgba(184, 185, 185, 1);
+
+$color-btn-hover: rgba(30, 183, 238, 0.9);
+
+$color-bg-main: rgba(231, 239, 236, 1);
+
+$shadow-section: 0px 7px 20px -5px rgba(0, 0, 0, 0.75);
+$shadow-table-info-line: 0px 13px 13px -4px rgba(0, 0, 0, 0.22);

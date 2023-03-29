@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/breakpoints.scss';
 
 .header {
     display: flex;
@@ -15,11 +16,24 @@
         }
     }
 
+    .navbar__btn {
+        padding: 20px;
+        border: none;
+        color: $color-white;
+        background: none;
+        font-size: 40px;
+
+        @include for-large-up {
+            display: none;
+        }
+    }
+
     .navbar {
-        display: flex;
-        // flex-direction: row;
-        // align-items: center;
-        // height: 100%;
+        display: none;
+
+        @include for-large-up {
+            display: flex;
+        }
 
         &__link {
             display: flex;

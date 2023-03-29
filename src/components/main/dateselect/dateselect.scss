@@ -1,4 +1,5 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/breakpoints.scss';
 
 .date-select {
     position: relative;
@@ -8,7 +9,6 @@
     width: 100%;
     height: 75px;
     background-color: $color-white;
-    // background-color: red;
 
     .datepicker {
         margin-left: 20px;
@@ -50,6 +50,10 @@
         position: relative;
         display: flex;
         flex-direction: row;
+
+        @include for-large-down {
+            display: none;
+        }
 
         .day {
             display: flex;

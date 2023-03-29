@@ -12,6 +12,10 @@ const Header = () => (
             ></img>
         </a>
 
+        <button className="navbar__btn">
+            <i className="fa-solid fa-bars"></i>
+        </button>
+
         <nav className="navbar">
             <a href="#" className="navbar__link">
                 For passengers
