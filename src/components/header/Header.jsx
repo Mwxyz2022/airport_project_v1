@@ -7,7 +7,7 @@ const Header = () => (
         <a href="/" className="logo">
             <img
                 className="logo-img"
-                src="https://github.com/Mwxyz2022/airport_project_v1/blob/main/src/image/logo.png"
+                src="https://github.com/Mwxyz2022/airport_project_v1/blob/main/src/image/logo.png?raw=true"
                 alt="logo"
             ></img>
         </a>
@@ -34,5 +34,3 @@ const Header = () => (
 )
 
 export default Header
-
-// fixed
