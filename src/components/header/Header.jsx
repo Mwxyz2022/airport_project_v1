@@ -7,7 +7,7 @@ const Header = () => (
         <a href="/" className="logo">
             <img
                 className="logo-img"
-                src="https://raw.githubusercontent.com/Mwxyz2022/Project-airport/main/src/image/logo.png"
+                src="https://github.com/Mwxyz2022/airport_project_v1/blob/main/src/image/logo.png"
                 alt="logo"
             ></img>
         </a>
