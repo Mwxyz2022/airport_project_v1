@@ -1,0 +1,106 @@
+@import '../../../styles/variables.scss';
+
+.date-select {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: 75px;
+    background-color: $color-white;
+    // background-color: red;
+
+    .datepicker {
+        margin-left: 20px;
+        margin-right: 30px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            background-color: $color-blue;
+            cursor: pointer;
+
+            .datepicker__date {
+                text-align: center;
+                color: $color-blue;
+                font-size: 12px;
+                font-weight: 600;
+                background-color: $color-white;
+            }
+
+            .datepicker__icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 42px;
+                width: 42px;
+                color: $color-white;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .datepicker__calendar {
+        position: absolute;
+        z-index: 2;
+        top: 34px;
+    }
+
+    .date {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            border: none;
+            color: $color-text-grey;
+            background-color: $color-white;
+            border-bottom: 3px solid $color-text-grey;
+            cursor: pointer;
+
+            &__date {
+                font-size: 12px;
+            }
+
+            &__title {
+                margin-top: 10px;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+
+        .day.selected {
+            color: $color-blue;
+        }
+
+        &__line {
+            position: absolute;
+            z-index: -1;
+            top: 52px;
+            width: 100px;
+            height: 3px;
+            background-color: $color-blue;
+            transition: linear 0.3s;
+        }
+    }
+
+    .date__line.yesterday {
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    .date__line.today {
+        transform: translateX(100%);
+        z-index: 1;
+    }
+
+    .date__line.tomorrow {
+        transform: translateX(200%);
+        z-index: 1;
+    }
+}

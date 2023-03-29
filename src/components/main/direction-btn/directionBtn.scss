@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+
+.direction {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 740px;
+
+    .btn {
+        display: flex;
+        align-items: center;
+        width: 340px;
+        height: 60px;
+        font-size: 20px;
+        font-weight: 600;
+        color: $color-blue;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: $color-white;
+        transition: border-radius 0.4s;
+
+        &__container {
+            display: flex;
+
+            .icon {
+                width: 40px;
+
+                &__departures {
+                    transform: rotate(348deg);
+                }
+
+                &__arrivals {
+                    transform: rotate(12deg);
+                }
+
+                path {
+                    fill: $color-blue;
+                }
+            }
+
+            .title__departures {
+                margin-left: 20px;
+            }
+
+            .title__arrivals {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .btn__departures {
+        padding-left: 30px;
+        border-radius: 10px 50px 10px 10px;
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-blue;
+            border-radius: 10px 30px 10px 10px;
+
+            .icon__departures {
+                path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+
+    .btn__arrivals {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 30px;
+        border-radius: 50px 10px 10px 10px;
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-blue;
+            border-radius: 30px 10px 10px 10px;
+
+            .icon__arrivals {
+                path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+}

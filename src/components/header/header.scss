@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-blue;
+
+    .logo {
+        display: flex;
+        margin: 10px 0;
+        margin-left: 80px;
+
+        .logo-img {
+            max-height: 70px;
+        }
+    }
+
+    .navbar {
+        display: flex;
+        // flex-direction: row;
+        // align-items: center;
+        // height: 100%;
+
+        &__link {
+            display: flex;
+            align-items: center;
+            padding: 0 35px;
+            height: 100%;
+            color: $color-white;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        &__lang-btn {
+            padding: 0 35px;
+            height: 100%;
+            color: $color-white;
+            font-size: 22px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
