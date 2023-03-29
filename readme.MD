@@ -1,6 +1,8 @@
-# AirportBoard
+# [AirportBoard Netlify](https://velvety-begonia-48801c.netlify.app)
 
-Provides functionality to search for flights by such criteria as:
+After launching the application, the user can search for information about flights of the Kyiv International Sikorsky Airport
+
+search criteria :
 
 -   date
 -   direction of the flight
@@ -9,13 +11,7 @@ Provides functionality to search for flights by such criteria as:
 
 ⚠ With the Russian military invasion of the territory of Ukraine. A no-fly zone has been established over the territory of Ukraine. The search functionality works with flight data up to February 22, 2022.
 
-The project used the [API](https://api.iev.aero/api/flights) of the Kyiv International Airport. Sikorsky
-
-#
-
-## [AirportBoard Netlify](https://velvety-begonia-48801c.netlify.app)
-
-Project commands:
+## Project commands:
 
 -   [npm start] "Starting project"
 -   [npm run build] "Bundling project"
