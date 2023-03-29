@@ -1,4 +1,4 @@
-# [AirportBoard.v1 Netlify](https://velvety-begonia-48801c.netlify.app)
+## [AirportBoard.v1 Netlify](https://velvety-begonia-48801c.netlify.app)
 
 After launching the application, the user can search for information about flights of the Kyiv International Sikorsky Airport
 
