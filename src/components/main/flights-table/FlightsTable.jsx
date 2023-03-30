@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import moment from 'moment'
 
-import './flighttable.scss'
+import './flightTable.scss'
 
 import { terminalStyles, getFlightStatus } from './flightTableUtils'
 
