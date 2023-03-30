@@ -12,6 +12,3 @@ export const fetchFlightsListData = date =>
             return response.json()
         })
         .then(res => res.body)
-        .catch(error => {
-            throw new Error(error.message)
-        })

@@ -64,6 +64,9 @@ export const getFlightsList = (searchText, searchDate) => {
                 return { departure: filteredDep, arrival: filteredArr }
             })
             .then(flightsList => dispatch(flightsListRecieved(flightsList)))
+            .catch(error => {
+                throw new Error(error.message)
+            })
     }
 
     return thunkAction
