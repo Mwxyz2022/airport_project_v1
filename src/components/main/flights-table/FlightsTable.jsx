@@ -6,7 +6,7 @@ import moment from 'moment'
 
 import './flighttable.scss'
 
-import { terminalStyles, getFlightStatus } from './tableutils'
+import { terminalStyles, getFlightStatus } from './flightTableUtils'
 
 import * as flightListSelector from '../../../gateway/selectors'
 

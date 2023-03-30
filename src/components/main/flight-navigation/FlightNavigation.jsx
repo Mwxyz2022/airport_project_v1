@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { isActiveBtn } from '../../../utils/utils'
 
-import DateSelect from '../dateselect/DateSelect'
+import DateSelect from '../date-select/DateSelect'
+
+import { isActiveBtn } from './flightNavigationUtils'
 
 import './flightNavigation.scss'
 

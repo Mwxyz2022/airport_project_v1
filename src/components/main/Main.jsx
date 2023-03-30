@@ -7,7 +7,7 @@ import * as flightsActions from '../../gateway/actions'
 
 import DirectionBtn from './direction-btn/DirectionBtn'
 import FlightNavigation from './flight-navigation/FlightNavigation'
-import FlightsTable from './flightstable/FlightsTable'
+import FlightsTable from './flights-table/FlightsTable'
 
 import './main.scss'
 import { setHistoryUrl } from '../../utils/utils'

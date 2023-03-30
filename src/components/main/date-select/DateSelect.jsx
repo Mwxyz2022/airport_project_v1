@@ -7,17 +7,12 @@ import moment from 'moment'
 import Calendar from 'react-calendar'
 
 import 'react-calendar/dist/Calendar.css'
-import './dateselect.scss'
+import './dateSelect.scss'
 
 import * as flightsActions from '../../../gateway/actions'
 
-import {
-    weekDay,
-    momentSettings,
-    setHistoryUrl,
-    getClassForDay,
-    dateForBtn,
-} from '../../../utils/utils'
+import { setHistoryUrl } from '../../../utils/utils'
+import { weekDay, momentSettings, dateForBtn, getClassForDay } from './dateSelectUtils'
 
 moment.locale('en-gb')
 
