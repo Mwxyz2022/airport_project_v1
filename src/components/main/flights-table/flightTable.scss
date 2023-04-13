@@ -1,10 +1,11 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/breakpoints.scss';
 
 .flight-table {
     display: flex;
     flex-direction: column;
     margin: 0 50px 40px;
-    max-width: 1120px;
+    max-width: $content-width;
     width: 100%;
     border-collapse: collapse;
 
@@ -18,13 +19,16 @@
             background-color: $color-white;
 
             .header__item {
-                padding: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 16px 10px;
                 font-size: 16px;
                 font-weight: 600;
-            }
 
-            .header__item.terminal {
-                text-align: center;
+                @include for-large-down {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -37,34 +41,14 @@
 
             .flight-table__item {
                 padding: 16px 10px;
-                height: 72px;
                 line-height: 40px;
                 font-size: 18px;
                 font-weight: 400;
-            }
 
-            .flight-table__item.terminal {
-                text-align: center;
-            }
-
-            .flight-table__item.airline {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-
-                .airline__company {
-                    display: flex;
-
-                    &__logo {
-                        padding-right: 5px;
-                        width: 65px;
-                        height: 35px;
-                    }
+                @include for-large-down {
+                    line-height: 30px;
+                    font-size: 14px;
                 }
-            }
-            .flight-table__item.flightnum {
-                display: flex;
-                flex-direction: column;
             }
 
             .flight-details {
@@ -74,7 +58,7 @@
 
             &:hover {
                 z-index: 2;
-                box-shadow: 0px 13px 13px -4px rgba(0, 0, 0, 0.22);
+                box-shadow: $shadow-table-info-line;
 
                 .flight-details {
                     display: inline;
@@ -92,6 +76,7 @@
 
     .terminal {
         width: 110px;
+        text-align: center;
     }
     .loctime {
         width: 110px;
@@ -103,13 +88,29 @@
         width: 182px;
     }
     .airline {
+        display: flex;
+        flex-direction: column;
         width: 250px;
+        height: auto;
+
+        .airline__company {
+            display: flex;
+
+            &__logo {
+                padding-right: 5px;
+                width: 65px;
+                height: 35px;
+
+                @include for-large-down {
+                    display: none;
+                }
+            }
+        }
     }
     .flight-num {
-        width: 104px;
-    }
-    .details {
-        width: 194px;
+        display: flex;
+        flex-direction: column;
+        width: 100px;
     }
 
     .nothing-found {

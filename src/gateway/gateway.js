@@ -11,4 +11,8 @@ export const fetchFlightsListData = date =>
 
             return response.json()
         })
-        .then(res => res.body)
+        .then(res => {
+            console.log(res)
+
+            return res.body
+        })

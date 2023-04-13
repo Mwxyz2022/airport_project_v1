@@ -65,7 +65,8 @@ export const getFlightsList = (searchText, searchDate) => {
             })
             .then(flightsList => dispatch(flightsListRecieved(flightsList)))
             .catch(error => {
-                throw new Error(error.message)
+                console.error(error.message)
+                alert('Failed to loaded flights data!')
             })
     }
 
