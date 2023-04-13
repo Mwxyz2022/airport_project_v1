@@ -33,8 +33,7 @@ const FlightsTable = ({ flightsDep, flightsArr }) => {
                             <th className="header__item destination">Destination</th>
                             <th className="header__item status ">Status</th>
                             <th className="header__item airline">Airline</th>
-                            <th className="header__item flightnum">Flight</th>
-                            <th className="header__item details"></th>
+                            <th className="header__item flight-num">Flight</th>
                         </tr>
                     </thead>
                     <tbody>
