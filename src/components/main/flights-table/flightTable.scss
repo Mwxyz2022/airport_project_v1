@@ -2,147 +2,147 @@
 @import '../../../styles/breakpoints.scss';
 
 .flight-table {
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px 40px;
+  max-width: $content-width;
+  width: 100%;
+  border-collapse: collapse;
+
+  &__line {
+    &__header {
+      display: flex;
+      text-align: left;
+      align-items: center;
+      line-height: 40px;
+      color: $color-text-grey;
+      background-color: $color-white;
+
+      .header__item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 16px 10px;
+        font-size: 16px;
+        font-weight: 600;
+
+        @include for-large-down {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__flight {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      text-align: left;
+      transition: 0.4s;
+
+      .flight-table__item {
+        padding: 16px 10px;
+        line-height: 40px;
+        font-size: 18px;
+        font-weight: 400;
+
+        @include for-large-down {
+          line-height: 30px;
+          font-size: 14px;
+        }
+      }
+
+      .flight-details {
+        display: none;
+        text-decoration-line: none;
+      }
+
+      &:hover {
+        z-index: 2;
+        box-shadow: $shadow-table-info-line;
+
+        .flight-details {
+          display: inline;
+          color: $color-blue;
+          border-bottom: 1px solid;
+          transition: linear 0.3s;
+
+          &:hover {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  .terminal {
+    width: 110px;
+    text-align: center;
+  }
+  .loctime {
+    width: 110px;
+  }
+  .destination {
+    width: 170px;
+  }
+  .status {
+    width: 182px;
+  }
+  .airline {
     display: flex;
     flex-direction: column;
-    margin: 0 50px 40px;
-    max-width: $content-width;
-    width: 100%;
-    border-collapse: collapse;
+    width: 250px;
+    height: auto;
 
-    &__line {
-        &__header {
-            display: flex;
-            text-align: left;
-            align-items: center;
-            line-height: 40px;
-            color: $color-text-grey;
-            background-color: $color-white;
+    .airline__company {
+      display: flex;
 
-            .header__item {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: 16px 10px;
-                font-size: 16px;
-                font-weight: 600;
+      &__logo {
+        padding-right: 5px;
+        width: 65px;
+        height: 35px;
 
-                @include for-large-down {
-                    font-size: 14px;
-                }
-            }
+        @include for-large-down {
+          display: none;
         }
-
-        &__flight {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            text-align: left;
-            transition: 0.4s;
-
-            .flight-table__item {
-                padding: 16px 10px;
-                line-height: 40px;
-                font-size: 18px;
-                font-weight: 400;
-
-                @include for-large-down {
-                    line-height: 30px;
-                    font-size: 14px;
-                }
-            }
-
-            .flight-details {
-                display: none;
-                text-decoration-line: none;
-            }
-
-            &:hover {
-                z-index: 2;
-                box-shadow: $shadow-table-info-line;
-
-                .flight-details {
-                    display: inline;
-                    color: $color-blue;
-                    border-bottom: 1px solid;
-                    transition: linear 0.3s;
-
-                    &:hover {
-                        border: none;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
+  .flight-num {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
 
-    .terminal {
-        width: 110px;
-        text-align: center;
-    }
-    .loctime {
-        width: 110px;
-    }
-    .destination {
-        width: 170px;
-    }
-    .status {
-        width: 182px;
-    }
-    .airline {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        height: auto;
+  .nothing-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 350px;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0 50px;
+    background-color: $color-white;
 
-        .airline__company {
-            display: flex;
-
-            &__logo {
-                padding-right: 5px;
-                width: 65px;
-                height: 35px;
-
-                @include for-large-down {
-                    display: none;
-                }
-            }
-        }
+    span {
+      font-weight: 600;
     }
-    .flight-num {
-        display: flex;
-        flex-direction: column;
-        width: 100px;
-    }
-
-    .nothing-found {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 350px;
-        font-size: 30px;
-        font-weight: 600;
-        padding: 0 50px;
-        background-color: $color-white;
-
-        span {
-            font-weight: 600;
-        }
-    }
+  }
 }
 
 .flight-terminal {
-    color: #63c745;
-    font-weight: 700;
-    border: 1px solid #63c745;
-    border-radius: 50%;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 35px;
-    font-size: 22px;
+  color: #63c745;
+  font-weight: 700;
+  border: 1px solid #63c745;
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 22px;
 }
 
 .flight-table__line__flight:nth-child(even) {
-    background-color: $color-white;
+  background-color: $color-white;
 }
