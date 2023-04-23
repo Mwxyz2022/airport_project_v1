@@ -1,4 +1,4 @@
-import { GET_FLIGHTS_LIST } from './actions'
+import { GET_FLIGHTS_LIST } from './types'
 
 const initialState = {
   flightsList: [],
@@ -11,6 +11,7 @@ const flightsListReducer = (state = initialState, action) => {
         ...state,
         flightsList: action.payload.flightsList,
       }
+
     default:
       return state
   }

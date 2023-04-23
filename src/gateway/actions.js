@@ -1,5 +1,4 @@
-import moment from 'moment'
-import * as flightsGateway from './gateway'
+import { fetchFlightsListData } from './gateway'
 
 export const GET_FLIGHTS_LIST = 'AIRPORT/GET_FLIGHTS_LIST'
 
@@ -15,8 +14,7 @@ export const flightsListRecieved = flightsList => {
 
 export const getFlightsList = (searchText, searchDate) => {
   const thunkAction = function (dispatch) {
-    flightsGateway
-      .fetchFlightsListData(searchDate || moment().format('DD-MM-YYYY'))
+    fetchFlightsListData(searchDate)
       .then(flightData => {
         const dep = flightData.departure
         const arr = flightData.arrival
@@ -60,13 +58,12 @@ export const getFlightsList = (searchText, searchDate) => {
             airline.includes(searchText.toLowerCase())
           )
         })
-
         return { departure: filteredDep, arrival: filteredArr }
       })
       .then(flightsList => dispatch(flightsListRecieved(flightsList)))
       .catch(error => {
         console.error(error.message)
-        alert('Failed to loaded flights data!')
+        alert(error.message)
       })
   }
 

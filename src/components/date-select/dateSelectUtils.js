@@ -21,17 +21,15 @@ export const dateForBtn = {
   tomorrowDate: moment(weekDay.tomorrow).format('DD/MM'),
 }
 
-export const getClassForDay = search => {
+export const getClassForDay = date => {
   const setClassDay = (selectDate, weekDayDate) =>
     moment(moment(selectDate, 'DD-MM-YYYY')).startOf('day').isSame(weekDayDate.startOf('day'))
       ? 'day selected'
       : 'day'
 
-  const historyDate = new URLSearchParams(search).get('date')
-
-  const yesterdayClass = setClassDay(historyDate, weekDay.yesterday)
-  const todayClass = setClassDay(historyDate, weekDay.today)
-  const tomorrowClass = setClassDay(historyDate, weekDay.tomorrow)
+  const yesterdayClass = setClassDay(date, weekDay.yesterday)
+  const todayClass = setClassDay(date, weekDay.today)
+  const tomorrowClass = setClassDay(date, weekDay.tomorrow)
 
   return {
     yesterdayClass,

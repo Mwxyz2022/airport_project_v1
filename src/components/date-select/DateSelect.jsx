@@ -1,60 +1,56 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom'
-
 import moment from 'moment'
-
+import React, { useEffect, useState } from 'react'
 import Calendar from 'react-calendar'
+
+import { useLocation } from 'react-router-dom'
+
+import { useUpdateQueryParam } from '../../hooks/useUpdateQueryParam'
+
+import { dateForBtn, getClassForDay, momentSettings, weekDay } from './dateSelectUtils'
 
 import 'react-calendar/dist/Calendar.css'
 import './dateSelect.scss'
 
-import * as flightsActions from '../../../gateway/actions'
-
-import { setHistoryUrl } from '../../../utils/utils'
-import { dateForBtn, getClassForDay, momentSettings, weekDay } from './dateSelectUtils'
-
 moment.locale('en-gb')
 
-const DateSelect = ({ getFlightsList, setSearchValue, historyDate }) => {
+const DateSelect = () => {
   const { search } = useLocation()
-  const history = useHistory()
-
-  const searchValue = new URLSearchParams(search).get('search') || ''
+  const updateQuery = useUpdateQueryParam()
+  const queryDate = new URLSearchParams(search).get('date')
 
   const [showCalendar, setShowCalendar] = useState(false)
 
-  const currentCalendarDate = new Date(moment(historyDate, 'DD-MM-YYYY'))
-  const datepickerDate = moment(currentCalendarDate).format('DD/MM')
-  const { yesterdayDate, todayDate, tomorrowDate } = dateForBtn
+  const currentCalendarDate = new Date(moment(queryDate, 'DD-MM-YYYY'))
 
-  const { yesterdayClass, todayClass, tomorrowClass } = getClassForDay(search)
-  const lineClass = moment(historyDate, 'DD-MM-YYYY').calendar(null, momentSettings)
+  const datepickerDate = moment(currentCalendarDate).format('DD/MM')
+
+  const { yesterdayDate, todayDate, tomorrowDate } = dateForBtn
+  const { yesterdayClass, todayClass, tomorrowClass } = getClassForDay(queryDate)
+  const lineClass = moment(queryDate, 'DD-MM-YYYY').calendar(null, momentSettings)
 
   const onCalendarHandler = () => {
     setShowCalendar(true)
   }
 
   const onSelectCalendarHandler = date => {
-    const searchDate = moment(date).format('DD-MM-YYYY')
-
-    setHistoryUrl(history, searchValue, searchDate)
-    getFlightsList(searchValue, searchDate)
+    const selectDate = moment(date).format('DD-MM-YYYY')
+    updateQuery('date', selectDate)
     setShowCalendar(false)
   }
 
   const onSelectButtonHandler = event => {
-    const selectDate = weekDay[event.currentTarget.name]
-    const searchDate = moment(selectDate).format('DD-MM-YYYY')
-
-    setHistoryUrl(history, searchValue, searchDate)
-    getFlightsList(searchValue, searchDate)
+    const selectDay = weekDay[event.currentTarget.name]
+    const selectDate = moment(selectDay).format('DD-MM-YYYY')
+    updateQuery('date', selectDate)
   }
 
   useEffect(() => {
-    setSearchValue(searchValue)
-    getFlightsList(searchValue, historyDate)
-  }, [])
+    const currentDate = moment().format('DD-MM-YYYY')
+
+    if (queryDate === null) {
+      updateQuery('date', currentDate)
+    }
+  }, [search])
 
   return (
     <section className="date-select">
@@ -92,8 +88,4 @@ const DateSelect = ({ getFlightsList, setSearchValue, historyDate }) => {
   )
 }
 
-const mapDispatch = {
-  getFlightsList: flightsActions.getFlightsList,
-}
-
-export default connect(null, mapDispatch)(DateSelect)
+export default DateSelect

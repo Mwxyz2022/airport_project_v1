@@ -2,10 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  input:focus {
-    outline: none;
-  }
 }
 
 body {
@@ -16,4 +12,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  input:focus {
+    outline: none;
+  }
 }

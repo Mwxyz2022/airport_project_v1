@@ -1,17 +1,31 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import moment from 'moment'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import moment from 'moment'
-
-import './flightTable.scss'
+import { getFlightsList } from '../../gateway/actions'
+import { arrFlightListSelector, depFlightListSelector } from '../../gateway/selectors'
 
 import { getFlightStatus, terminalStyles } from './flightTableUtils'
 
-import * as flightListSelector from '../../../gateway/selectors'
+import './flightTable.scss'
 
-const FlightsTable = ({ flightsDep, flightsArr }) => {
-  const { pathname } = useLocation()
+const FlightsTable = () => {
+  const flightsDep = useSelector(depFlightListSelector)
+  const flightsArr = useSelector(arrFlightListSelector)
+  const dispatch = useDispatch()
+  const getFlightData = (value, date) => dispatch(getFlightsList(value, date))
+  const { pathname, search } = useLocation()
+
+  useEffect(() => {
+    const searchValue = new URLSearchParams(search).get('search') || ''
+    const searchDate = new URLSearchParams(search).get('date')
+
+    if (searchValue || searchDate) {
+      getFlightData(searchValue, searchDate)
+    }
+  }, [search])
+
   let flightList = []
 
   if (pathname === '/departures' && flightsDep) {
@@ -21,7 +35,6 @@ const FlightsTable = ({ flightsDep, flightsArr }) => {
   if (pathname === '/arrivals' && flightsArr) {
     flightList = flightsArr
   }
-
   return (
     <table className="flight-table">
       {flightList.length ? (
@@ -106,9 +119,4 @@ const FlightsTable = ({ flightsDep, flightsArr }) => {
   )
 }
 
-const mapState = state => ({
-  flightsDep: flightListSelector.depFlightListSelector(state),
-  flightsArr: flightListSelector.arrFlightListSelector(state),
-})
-
-export default connect(mapState, null)(FlightsTable)
+export default FlightsTable
