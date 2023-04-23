@@ -2,15 +2,12 @@ import { fetchFlightsListData } from './gateway'
 
 export const GET_FLIGHTS_LIST = 'AIRPORT/GET_FLIGHTS_LIST'
 
-export const flightsListRecieved = flightsList => {
-  const action = {
-    type: GET_FLIGHTS_LIST,
-    payload: {
-      flightsList,
-    },
-  }
-  return action
-}
+export const flightsListRecieved = flightsList => ({
+  type: GET_FLIGHTS_LIST,
+  payload: {
+    flightsList,
+  },
+})
 
 export const getFlightsList = (searchText, searchDate) => {
   const thunkAction = function (dispatch) {
@@ -18,6 +15,10 @@ export const getFlightsList = (searchText, searchDate) => {
       .then(flightData => {
         const dep = flightData.departure
         const arr = flightData.arrival
+
+        if (!searchText) {
+          return { departure: dep, arrival: arr }
+        }
 
         const filteredDep = dep.filter(flight => {
           const toCity = flight['airportToID.city_en'].toLowerCase()
